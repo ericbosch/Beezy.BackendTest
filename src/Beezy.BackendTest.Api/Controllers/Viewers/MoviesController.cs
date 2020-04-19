@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 namespace Beezy.BackendTest.Api.Controllers.Viewers
 {
     /// <inheritdoc />
-    [Route("api/recommendations/movies")]
+    [Route("api/viewers/recommendations/movies")]
     [ApiController]
     public class MoviesController : ControllerBase
     {

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Beezy.BackendTest.Api.Controllers.Viewers
 {
     /// <inheritdoc />
-    [Route("api/recommendations/documentaries")]
+    [Route("api/viewers/recommendations/documentaries")]
     [ApiController]
     public class DocumentariesController : ControllerBase
     {

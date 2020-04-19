@@ -4,6 +4,20 @@
         <name>Beezy.BackendTest.Api</name>
     </assembly>
     <members>
+        <member name="T:Beezy.BackendTest.Api.Controllers.Managers.MoviesController">
+            <inheritdoc />
+        </member>
+        <member name="M:Beezy.BackendTest.Api.Controllers.Managers.MoviesController.GetUpcomingRecommendations(System.Int32,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Get recommendations for upcoming movies filtered by age rating and genres.
+            </summary>
+            <remarks>
+            Recommended upcoming movies (specifying a period of time from now) based on age rating and genres they prefer.
+            </remarks>
+            <param name="timePeriod">Period of time (in days) from now</param>
+            <param name="ageRate">Age rating qualification of the movie</param>
+            <param name="genres">Genres which movie belongs</param>
+        </member>
         <member name="T:Beezy.BackendTest.Api.Controllers.Viewers.DocumentariesController">
             <inheritdoc />
         </member>
