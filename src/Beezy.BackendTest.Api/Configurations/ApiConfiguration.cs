@@ -93,6 +93,10 @@ namespace Beezy.BackendTest.Api.Configurations
                 {
                     // add a custom operation filter which sets default values
                     options.OperationFilter<SwaggerDefaultValues>();
+
+                    //integrate xml comments
+                    options.IncludeXmlComments(
+                        $@"{AppDomain.CurrentDomain.BaseDirectory}\Beezy.BackendTest.Api.xml");
                 });
         }
 
