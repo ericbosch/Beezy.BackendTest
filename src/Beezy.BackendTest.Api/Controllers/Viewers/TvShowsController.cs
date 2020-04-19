@@ -22,7 +22,7 @@ namespace Beezy.BackendTest.Api.Controllers.Viewers
         /// All-time recommended TV shows based on keywords that you like, genres you prefer or a combination of both.
         /// </remarks>
         /// <param name="keywords">Keywords used to identify the TV show</param>
-        /// <param name="genres">Genres that belongs the TV show</param>
+        /// <param name="genres">Genres which TV show belongs</param>
         [HttpGet("all-time")]
         [ProducesResponseType(typeof(TvShowsRecommendationResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

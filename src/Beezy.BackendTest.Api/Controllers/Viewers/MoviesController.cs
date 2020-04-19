@@ -22,8 +22,8 @@ namespace Beezy.BackendTest.Api.Controllers.Viewers
         /// <remarks>
         /// All-time recommended movies based on keywords that you like, genres you prefer or a combination of both.
         /// </remarks>
-        /// <param name="keywords">Keywords used to identify the Tv Show</param>
-        /// <param name="genres">Genres that belongs the Tv Show</param>
+        /// <param name="keywords">Keywords used to identify the movie</param>
+        /// <param name="genres">Genres which movie belongs</param>
         [HttpGet("all-time")]
         [ProducesResponseType(typeof(MoviesRecommendationResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -39,8 +39,8 @@ namespace Beezy.BackendTest.Api.Controllers.Viewers
         /// Recommended upcoming movies (specifying a period of time from now) based on keywords that they like, genres they prefer or a combination of both.
         /// </remarks>
         /// <param name="timePeriod">Period of time (in days) from now</param>
-        /// <param name="keywords">Keywords used to identify the Tv Show</param>
-        /// <param name="genres">Genres that belongs the Tv Show</param>
+        /// <param name="keywords">Keywords used to identify the movie</param>
+        /// <param name="genres">Genres which movie belongs</param>
         [HttpGet("upcoming")]
         [ProducesResponseType(typeof(MoviesRecommendationResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

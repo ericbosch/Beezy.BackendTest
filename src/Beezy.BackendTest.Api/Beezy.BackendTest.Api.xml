@@ -4,6 +4,18 @@
         <name>Beezy.BackendTest.Api</name>
     </assembly>
     <members>
+        <member name="T:Beezy.BackendTest.Api.Controllers.Viewers.DocumentariesController">
+            <inheritdoc />
+        </member>
+        <member name="M:Beezy.BackendTest.Api.Controllers.Viewers.DocumentariesController.GetAllTimeRecommendations(System.Collections.Generic.List{System.String})">
+            <summary>
+            Get recommendations for documentaries filtered by topics.
+            </summary>
+            <remarks>
+            All-time recommended documentaries based on topics.
+            </remarks>
+            <param name="topics">Topics covered by the documentary</param>
+        </member>
         <member name="T:Beezy.BackendTest.Api.Controllers.Viewers.MoviesController">
             <inheritdoc />
         </member>
@@ -14,8 +26,8 @@
             <remarks>
             All-time recommended movies based on keywords that you like, genres you prefer or a combination of both.
             </remarks>
-            <param name="keywords">Keywords used to identify the Tv Show</param>
-            <param name="genres">Genres that belongs the Tv Show</param>
+            <param name="keywords">Keywords used to identify the movie</param>
+            <param name="genres">Genres which movie belongs</param>
         </member>
         <member name="M:Beezy.BackendTest.Api.Controllers.Viewers.MoviesController.GetUpcomingRecommendations(System.Int32,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>
@@ -25,8 +37,8 @@
             Recommended upcoming movies (specifying a period of time from now) based on keywords that they like, genres they prefer or a combination of both.
             </remarks>
             <param name="timePeriod">Period of time (in days) from now</param>
-            <param name="keywords">Keywords used to identify the Tv Show</param>
-            <param name="genres">Genres that belongs the Tv Show</param>
+            <param name="keywords">Keywords used to identify the movie</param>
+            <param name="genres">Genres which movie belongs</param>
         </member>
         <member name="T:Beezy.BackendTest.Api.Controllers.Viewers.TvShowsController">
             <inheritdoc />
@@ -39,7 +51,7 @@
             All-time recommended TV shows based on keywords that you like, genres you prefer or a combination of both.
             </remarks>
             <param name="keywords">Keywords used to identify the TV show</param>
-            <param name="genres">Genres that belongs the TV show</param>
+            <param name="genres">Genres which TV show belongs</param>
         </member>
     </members>
 </doc>
