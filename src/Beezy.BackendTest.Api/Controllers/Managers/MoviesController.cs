@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Beezy.BackendTest.Api.Models;
 using Beezy.BackendTest.Api.Models.Recommendations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
 
 namespace Beezy.BackendTest.Api.Controllers.Managers
@@ -36,5 +32,3 @@ namespace Beezy.BackendTest.Api.Controllers.Managers
         }
     }
 }
-
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously

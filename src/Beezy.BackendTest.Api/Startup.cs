@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+#pragma warning disable 1591
 
 namespace Beezy.BackendTest.Api
 {
-#pragma warning disable 1591
     public class Startup
     {
         public IConfiguration Configuration { get; }
@@ -39,6 +39,5 @@ namespace Beezy.BackendTest.Api
             }
             ApiConfiguration.Configure(app, provider);
         }
-#pragma warning restore 1591
     }
 }

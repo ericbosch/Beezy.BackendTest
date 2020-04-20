@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+#pragma warning disable 1591
 
 namespace Beezy.BackendTest.Api
 {
-#pragma warning disable 1591
     public class Program
     {
         public static void Main(string[] args)
@@ -18,5 +18,4 @@ namespace Beezy.BackendTest.Api
                     webBuilder.UseStartup<Startup>();
                 });
     }
-#pragma warning restore 1591
 }

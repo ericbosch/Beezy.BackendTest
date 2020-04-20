@@ -7,15 +7,29 @@
         <member name="T:Beezy.BackendTest.Api.Controllers.Managers.BillboardsController">
             <inheritdoc />
         </member>
-        <member name="M:Beezy.BackendTest.Api.Controllers.Managers.BillboardsController.GetSuggestedBillboard(System.Int32,System.Int32)">
+        <member name="M:Beezy.BackendTest.Api.Controllers.Managers.BillboardsController.GetSuggestedBillboard(System.Int32,System.Int32,System.Boolean)">
             <summary>
-            Build a suggested billboard for theater for a specific period of one or more weeks.
+            Build a suggested billboard for theaters for a specific period of one or more weeks.
             </summary>
             <remarks>
-            Build a suggested billboard for theater for a specific period of one or more weeks specifying the number of weeks and the number of screens.
+            Build a suggested billboard for theaters for a specific period of one or more weeks specifying the number of weeks and the number of screens.
             </remarks>
             <param name="timePeriod">Period of time (in weeks) from now</param>
             <param name="screenNumber">Number of screens for the theater</param>
+            <param name="basedOnCity">Include movies that have been successful in the city</param>
+        </member>
+        <member name="M:Beezy.BackendTest.Api.Controllers.Managers.BillboardsController.GetIntelligentBillboard(System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Build a suggested intelligent billboard for theaters for a specific period of one or more weeks.
+            </summary>
+            <remarks>
+            Build a suggested intelligent billboard for theaters for a specific period of one or more weeks specifying the number of weeks
+            and how many screens are in big rooms and how many of them in small rooms.
+            </remarks>
+            <param name="timePeriod">Period of time (in weeks) from now</param>
+            <param name="bigRooms">Number of big room screens for the theater</param>
+            <param name="smallRooms">Number of small room screens for the theater</param>
+            <param name="basedOnCity">Include movies that have been successful in the city</param>
         </member>
         <member name="T:Beezy.BackendTest.Api.Controllers.Managers.MoviesController">
             <inheritdoc />
@@ -79,6 +93,21 @@
             </remarks>
             <param name="keywords">Keywords used to identify the TV show</param>
             <param name="genres">Genres which TV show belongs</param>
+        </member>
+        <member name="T:Beezy.BackendTest.Api.Models.Billboards.IntelligentBillboardResponse">
+            <summary>
+            Container model for suggested intelligent billboard
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.Billboards.IntelligentBillboardResponse.BigRoomMovies">
+            <summary>
+            Directory of movies to screen on big rooms on the theater
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.Billboards.IntelligentBillboardResponse.SmallRoomMovies">
+            <summary>
+            Directory of movies to screen on small rooms on the theater
+            </summary>
         </member>
         <member name="T:Beezy.BackendTest.Api.Models.Billboards.SuggestedBillboardResponse">
             <summary>
