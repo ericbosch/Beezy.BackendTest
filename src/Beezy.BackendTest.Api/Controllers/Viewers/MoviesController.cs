@@ -25,7 +25,7 @@ namespace Beezy.BackendTest.Api.Controllers.Viewers
         /// <param name="keywords">Keywords used to identify the movie</param>
         /// <param name="genres">Genres which movie belongs</param>
         [HttpGet("all-time")]
-        [ProducesResponseType(typeof(MoviesRecommendationResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<MoviesRecommendationResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetAllTimeRecommendations([FromQuery] List<string> keywords, [FromQuery] List<string> genres)
         {
@@ -42,7 +42,7 @@ namespace Beezy.BackendTest.Api.Controllers.Viewers
         /// <param name="keywords">Keywords used to identify the movie</param>
         /// <param name="genres">Genres which movie belongs</param>
         [HttpGet("upcoming")]
-        [ProducesResponseType(typeof(MoviesRecommendationResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<MoviesRecommendationResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetUpcomingRecommendations([FromQuery, BindRequired] int timePeriod, [FromQuery] List<string> keywords, [FromQuery] List<string> genres)
         {

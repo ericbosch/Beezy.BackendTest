@@ -24,7 +24,7 @@ namespace Beezy.BackendTest.Api.Controllers.Viewers
         /// <param name="keywords">Keywords used to identify the TV show</param>
         /// <param name="genres">Genres which TV show belongs</param>
         [HttpGet("all-time")]
-        [ProducesResponseType(typeof(TvShowsRecommendationResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<TvShowsRecommendationResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetAllTimeRecommendations([FromQuery] List<string> keywords, [FromQuery] List<string> genres)
         {
