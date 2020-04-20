@@ -24,10 +24,11 @@ namespace Beezy.BackendTest.Api.Controllers.Managers
         /// </remarks>
         /// <param name="timePeriod">Period of time (in weeks) from now</param>
         /// <param name="screenNumber">Number of screens for the theater</param>
+        /// <param name="basedOnCity">Include movies that have been successful in the city</param>
         [HttpGet("suggested")]
         [ProducesResponseType(typeof(List<SuggestedBillboardResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetSuggestedBillboard([FromQuery, BindRequired] int timePeriod, [FromQuery, BindRequired] int screenNumber)
+        public async Task<IActionResult> GetSuggestedBillboard([FromQuery, BindRequired] int timePeriod, [FromQuery, BindRequired] int screenNumber, [FromQuery] bool basedOnCity)
         {
             return NotFound("Under construction, come back soon!");
         }
