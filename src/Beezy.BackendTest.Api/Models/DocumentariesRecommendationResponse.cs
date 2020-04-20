@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Beezy.BackendTest.Api.Models
 {
+    /// <inheritdoc />
     public class DocumentariesRecommendationResponse : BaseRecommendationResponse
     {
     }

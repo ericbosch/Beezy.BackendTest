@@ -20,6 +20,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Beezy.BackendTest.Api.Configurations
 {
+#pragma warning disable 1591
     public static class ApiConfiguration
     {
         public static void ConfigureServices(IServiceCollection services, IWebHostEnvironment environment, IConfiguration configuration)
@@ -139,4 +140,5 @@ namespace Beezy.BackendTest.Api.Configurations
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(logger: logger, dispose: true));
         }
     }
+#pragma warning restore 1591
 }

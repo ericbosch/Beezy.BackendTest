@@ -67,5 +67,69 @@
             <param name="keywords">Keywords used to identify the TV show</param>
             <param name="genres">Genres which TV show belongs</param>
         </member>
+        <member name="T:Beezy.BackendTest.Api.Models.BaseRecommendationResponse">
+            <summary>
+            Model Container for recommendations. It can either be movies, TV shows or documentaries.
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.Title">
+            <summary>
+            Title of the movie, TV show or documentary
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.Overview">
+            <summary>
+            Resume of the movie, TV show or documentary
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.Genres">
+            <summary>
+            Genres which belongs the movie, TV show or documentary
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.Language">
+            <summary>
+            Language of the movie, TV show or documentary
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.ReleaseDate">
+            <summary>
+            Release date of the movie, TV show or documentary
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.WebSite">
+            <summary>
+            Website of the movie, TV show or documentary
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.Keywords">
+            <summary>
+            Keywords used to identify the movie, TV show or documentary
+            </summary>
+        </member>
+        <member name="T:Beezy.BackendTest.Api.Models.DocumentariesRecommendationResponse">
+            <inheritdoc />
+        </member>
+        <member name="T:Beezy.BackendTest.Api.Models.MoviesRecommendationResponse">
+            <inheritdoc />
+        </member>
+        <member name="T:Beezy.BackendTest.Api.Models.TvShowsRecommendationResponse">
+            <inheritdoc />
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.TvShowsRecommendationResponse.Seasons">
+            <summary>
+            Number of seasons of the TV show.
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.TvShowsRecommendationResponse.Episodes">
+            <summary>
+            Number of episodes of each season.
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.TvShowsRecommendationResponse.Concluded">
+            <summary>
+            Indicates if the TV show are concluded or not.
+            </summary>
+        </member>
     </members>
 </doc>

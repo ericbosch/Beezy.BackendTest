@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace Beezy.BackendTest.Api
 {
+#pragma warning disable 1591
     public class Startup
     {
         public IConfiguration Configuration { get; }
@@ -38,5 +39,6 @@ namespace Beezy.BackendTest.Api
             }
             ApiConfiguration.Configure(app, provider);
         }
+#pragma warning restore 1591
     }
 }
