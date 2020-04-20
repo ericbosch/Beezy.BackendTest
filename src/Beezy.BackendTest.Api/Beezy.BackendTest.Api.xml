@@ -4,6 +4,19 @@
         <name>Beezy.BackendTest.Api</name>
     </assembly>
     <members>
+        <member name="T:Beezy.BackendTest.Api.Controllers.Managers.BillboardsController">
+            <inheritdoc />
+        </member>
+        <member name="M:Beezy.BackendTest.Api.Controllers.Managers.BillboardsController.GetSuggestedBillboard(System.Int32,System.Int32)">
+            <summary>
+            Build a suggested billboard for theater for a specific period of one or more weeks.
+            </summary>
+            <remarks>
+            Build a suggested billboard for theater for a specific period of one or more weeks specifying the number of weeks and the number of screens.
+            </remarks>
+            <param name="timePeriod">Period of time (in weeks) from now</param>
+            <param name="screenNumber">Number of screens for the theater</param>
+        </member>
         <member name="T:Beezy.BackendTest.Api.Controllers.Managers.MoviesController">
             <inheritdoc />
         </member>
@@ -67,66 +80,91 @@
             <param name="keywords">Keywords used to identify the TV show</param>
             <param name="genres">Genres which TV show belongs</param>
         </member>
-        <member name="T:Beezy.BackendTest.Api.Models.BaseRecommendationResponse">
+        <member name="T:Beezy.BackendTest.Api.Models.Billboards.SuggestedBillboardResponse">
+            <summary>
+            Container model for suggested billboard
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.Billboards.SuggestedBillboardResponse.OnScreenMovies">
+            <summary>
+            Directory of movies to screen on the theater
+            </summary>
+        </member>
+        <member name="T:Beezy.BackendTest.Api.Models.Recommendations.Base.BaseRecommendationResponse">
             <summary>
             Model Container for recommendations. It can either be movies, TV shows or documentaries.
             </summary>
         </member>
-        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.Title">
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.Base.BaseRecommendationResponse.Title">
             <summary>
             Title of the movie, TV show or documentary
             </summary>
         </member>
-        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.Overview">
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.Base.BaseRecommendationResponse.Overview">
             <summary>
             Resume of the movie, TV show or documentary
             </summary>
         </member>
-        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.Genres">
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.Base.BaseRecommendationResponse.Genres">
             <summary>
             Genres which belongs the movie, TV show or documentary
             </summary>
         </member>
-        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.Language">
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.Base.BaseRecommendationResponse.Language">
             <summary>
             Language of the movie, TV show or documentary
             </summary>
         </member>
-        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.ReleaseDate">
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.Base.BaseRecommendationResponse.ReleaseDate">
             <summary>
             Release date of the movie, TV show or documentary
             </summary>
         </member>
-        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.WebSite">
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.Base.BaseRecommendationResponse.WebSite">
             <summary>
             Website of the movie, TV show or documentary
             </summary>
         </member>
-        <member name="P:Beezy.BackendTest.Api.Models.BaseRecommendationResponse.Keywords">
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.Base.BaseRecommendationResponse.Keywords">
             <summary>
             Keywords used to identify the movie, TV show or documentary
             </summary>
         </member>
-        <member name="T:Beezy.BackendTest.Api.Models.DocumentariesRecommendationResponse">
+        <member name="T:Beezy.BackendTest.Api.Models.Recommendations.DocumentariesRecommendationResponse">
             <inheritdoc />
         </member>
-        <member name="T:Beezy.BackendTest.Api.Models.MoviesRecommendationResponse">
+        <member name="T:Beezy.BackendTest.Api.Models.Recommendations.MoviesRecommendationResponse">
             <inheritdoc />
         </member>
-        <member name="T:Beezy.BackendTest.Api.Models.TvShowsRecommendationResponse">
+        <member name="T:Beezy.BackendTest.Api.Models.Recommendations.OnScreenMoviesRecommendation">
+            <summary>
+            Container model for suggested movies for each theater
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.OnScreenMoviesRecommendation.Screen">
+            <summary>
+            Screen identifier
+            </summary>
+        </member>
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.OnScreenMoviesRecommendation.Movies">
+            <summary>
+            List of movies recommended to show
+            </summary>
+        </member>
+        <member name="T:Beezy.BackendTest.Api.Models.Recommendations.TvShowsRecommendationResponse">
             <inheritdoc />
         </member>
-        <member name="P:Beezy.BackendTest.Api.Models.TvShowsRecommendationResponse.Seasons">
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.TvShowsRecommendationResponse.Seasons">
             <summary>
             Number of seasons of the TV show.
             </summary>
         </member>
-        <member name="P:Beezy.BackendTest.Api.Models.TvShowsRecommendationResponse.Episodes">
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.TvShowsRecommendationResponse.Episodes">
             <summary>
             Number of episodes of each season.
             </summary>
         </member>
-        <member name="P:Beezy.BackendTest.Api.Models.TvShowsRecommendationResponse.Concluded">
+        <member name="P:Beezy.BackendTest.Api.Models.Recommendations.TvShowsRecommendationResponse.Concluded">
             <summary>
             Indicates if the TV show are concluded or not.
             </summary>

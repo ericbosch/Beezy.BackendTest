@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Beezy.BackendTest.Api.Models
+namespace Beezy.BackendTest.Api.Models.Recommendations.Base
 {
     /// <summary>
     /// Model Container for recommendations. It can either be movies, TV shows or documentaries.
