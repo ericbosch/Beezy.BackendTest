@@ -8,6 +8,7 @@ using Beezy.BackendTest.Domain.Queries.IntelligentBillboard;
 using Beezy.BackendTest.Infrastructure.CrossCutting.HealthCheck;
 using Beezy.BackendTest.Infrastructure.CrossCutting.Swagger;
 using Beezy.BackendTest.Infrastructure.CrossCutting.Settings;
+using Beezy.BackendTest.Infrastructure.Data.DbContext;
 using Beezy.BackendTest.Infrastructure.Data.Proxies;
 using HealthChecks.UI.Client;
 using Hellang.Middleware.ProblemDetails;
@@ -17,6 +18,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -43,6 +45,8 @@ namespace Beezy.BackendTest.Api.Configurations
             services.ConfigureLogger(configuration);
             services.AddSingleton<ITheMovieDbProxy, TheMovieDbProxy>();
             services.AddSingleton<IDateService, DateService>();
+            services.AddDbContext<BeezyCinemaContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString(GetDatabaseSettings(configuration).ConnectionString)));
         }
 
         public static void Configure(IApplicationBuilder app, IApiVersionDescriptionProvider provider)
@@ -71,6 +75,9 @@ namespace Beezy.BackendTest.Api.Configurations
 
         private static TheMovieDbApiSettings GetTheMovieDbApiSettings(IConfiguration configuration) =>
             configuration.GetSection("TheMovieDbApiSettings").Get<TheMovieDbApiSettings>();
+
+        private static DatabaseSettings GetDatabaseSettings(IConfiguration configuration) =>
+            configuration.GetSection("DatabaseSettings").Get<DatabaseSettings>();
 
         public static void AddApiHealthChecks(this IServiceCollection services)
         {
