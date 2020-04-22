@@ -3,7 +3,7 @@
 namespace Beezy.BackendTest.Api.Models.Recommendations
 {
     /// <inheritdoc />
-    public class TvShowsRecommendationResponse : BaseRecommendationResponse
+    public class TvShowRecommendationResponse : BaseRecommendationResponse
     {
         /// <summary>
         /// Number of seasons of the TV show.

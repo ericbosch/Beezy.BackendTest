@@ -1,9 +1,17 @@
 ﻿using System;
 using System.Net.Http;
+using System.Reflection;
+using Beezy.BackendTest.Api.Services;
+using Beezy.BackendTest.Domain;
+using Beezy.BackendTest.Domain.Proxies;
+using Beezy.BackendTest.Domain.Queries.IntelligentBillboard;
 using Beezy.BackendTest.Infrastructure.CrossCutting.HealthCheck;
 using Beezy.BackendTest.Infrastructure.CrossCutting.Swagger;
+using Beezy.BackendTest.Infrastructure.CrossCutting.Settings;
+using Beezy.BackendTest.Infrastructure.Data.Proxies;
 using HealthChecks.UI.Client;
 using Hellang.Middleware.ProblemDetails;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
@@ -17,20 +25,24 @@ using Microsoft.Extensions.Options;
 using Serilog;
 using Serilog.Events;
 using Swashbuckle.AspNetCore.SwaggerGen;
+#pragma warning disable 1591
 
 namespace Beezy.BackendTest.Api.Configurations
 {
-#pragma warning disable 1591
     public static class ApiConfiguration
     {
         public static void ConfigureServices(IServiceCollection services, IWebHostEnvironment environment, IConfiguration configuration)
         {
+            services.AddMediatR(typeof(GetIntelligentBillboardHandler).GetTypeInfo().Assembly);
+            services.AddSingleton(serviceProvider => GetTheMovieDbApiSettings(configuration));
             services.AddApiHealthChecks();
             services.AddProblemDetails(pdo => ConfigureProblemDetails(pdo, environment));
             services.AddControllers();
             services.AddVersioning();
             services.AddSwagger();
             services.ConfigureLogger(configuration);
+            services.AddSingleton<ITheMovieDbProxy, TheMovieDbProxy>();
+            services.AddSingleton<IDateService, DateService>();
         }
 
         public static void Configure(IApplicationBuilder app, IApiVersionDescriptionProvider provider)
@@ -56,6 +68,9 @@ namespace Beezy.BackendTest.Api.Configurations
                     }
                 });
         }
+
+        private static TheMovieDbApiSettings GetTheMovieDbApiSettings(IConfiguration configuration) =>
+            configuration.GetSection("TheMovieDbApiSettings").Get<TheMovieDbApiSettings>();
 
         public static void AddApiHealthChecks(this IServiceCollection services)
         {
@@ -140,5 +155,4 @@ namespace Beezy.BackendTest.Api.Configurations
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(logger: logger, dispose: true));
         }
     }
-#pragma warning restore 1591
 }

@@ -36,7 +36,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Beezy.BackendTest.Domain\Beezy.BackendTest.Domain.csproj" />
     <ProjectReference Include="..\Beezy.BackendTest.Infrastructure.CrossCutting\Beezy.BackendTest.Infrastructure.CrossCutting.csproj" />
+    <ProjectReference Include="..\Beezy.BackendTest.Infrastructure.Data\Beezy.BackendTest.Infrastructure.Data.csproj" />
   </ItemGroup>
 
 </Project>

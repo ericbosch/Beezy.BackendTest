@@ -20,7 +20,7 @@ namespace Beezy.BackendTest.Api.Controllers.Viewers
         /// </remarks>
         /// <param name="topics">Topics covered by the documentary</param>
         [HttpGet("all-time")]
-        [ProducesResponseType(typeof(List<DocumentariesRecommendationResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<DocumentaryRecommendationResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetAllTimeRecommendations([FromQuery] List<string> topics)
         {

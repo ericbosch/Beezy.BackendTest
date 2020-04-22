@@ -3,7 +3,7 @@
 namespace Beezy.BackendTest.Api.Models.Recommendations
 {
     /// <inheritdoc />
-    public class DocumentariesRecommendationResponse : BaseRecommendationResponse
+    public class MovieRecommendationResponse : BaseRecommendationResponse
     {
     }
 }

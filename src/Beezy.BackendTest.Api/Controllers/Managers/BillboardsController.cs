@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Beezy.BackendTest.Api.Extensions;
 using Beezy.BackendTest.Api.Models.Billboards;
+using Beezy.BackendTest.Domain.Queries.IntelligentBillboard;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -13,6 +17,14 @@ namespace Beezy.BackendTest.Api.Controllers.Managers
     [ApiController]
     public class BillboardsController : ControllerBase
     {
+        private readonly IMediator _mediator;
+
+        /// <inheritdoc />
+        public BillboardsController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         /// <summary>
         /// Build a suggested billboard for theaters for a specific period of one or more weeks.
         /// </summary>
@@ -48,7 +60,11 @@ namespace Beezy.BackendTest.Api.Controllers.Managers
             [FromQuery, BindRequired] int bigRooms, [FromQuery, BindRequired] int smallRooms,
             [FromQuery] bool basedOnCity)
         {
-            return NotFound("Under construction, come back soon!");
+            var request = new GetIntelligentBillboardRequest(timePeriod, bigRooms, smallRooms, basedOnCity);
+
+            var response = await _mediator.Send(request);
+
+            return response.Billboards.Match<IActionResult>(r => Ok(r.Select(b => b.ToDto()).ToList()), NotFound);
         }
     }
 }
