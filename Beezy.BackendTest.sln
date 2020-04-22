@@ -11,7 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beezy.BackendTest.Api.Tests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{383E372C-4C9D-4C3C-8AB7-6788AE242EB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beezy.BackendTest.Infrastructure.CrossCutting", "src\Beezy.BackendTest.Infrastructure.CrossCutting\Beezy.BackendTest.Infrastructure.CrossCutting.csproj", "{FF408CC5-32A9-4961-A143-B9E4A55B108E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beezy.BackendTest.Infrastructure.CrossCutting", "src\Beezy.BackendTest.Infrastructure.CrossCutting\Beezy.BackendTest.Infrastructure.CrossCutting.csproj", "{FF408CC5-32A9-4961-A143-B9E4A55B108E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{1BD9037C-3B74-4A45-96EE-674BD2190EDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beezy.BackendTest.Domain", "src\Beezy.BackendTest.Domain\Beezy.BackendTest.Domain.csproj", "{FF0F2891-51D3-45FD-B646-A122A22B2AA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beezy.BackendTest.Infrastructure.Data", "src\Beezy.BackendTest.Infrastructure.Data\Beezy.BackendTest.Infrastructure.Data.csproj", "{2555E4E3-12B6-4F00-9B65-E2DC45B75A15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beezy.BackendTest.Domain.Tests", "test\Beezy.BackendTest.Domain.Tests\Beezy.BackendTest.Domain.Tests.csproj", "{057B24FB-EA10-48F4-9625-0EFA3584FBFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +39,18 @@ Global
 		{FF408CC5-32A9-4961-A143-B9E4A55B108E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF408CC5-32A9-4961-A143-B9E4A55B108E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF408CC5-32A9-4961-A143-B9E4A55B108E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF0F2891-51D3-45FD-B646-A122A22B2AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF0F2891-51D3-45FD-B646-A122A22B2AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF0F2891-51D3-45FD-B646-A122A22B2AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF0F2891-51D3-45FD-B646-A122A22B2AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2555E4E3-12B6-4F00-9B65-E2DC45B75A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2555E4E3-12B6-4F00-9B65-E2DC45B75A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2555E4E3-12B6-4F00-9B65-E2DC45B75A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2555E4E3-12B6-4F00-9B65-E2DC45B75A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057B24FB-EA10-48F4-9625-0EFA3584FBFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057B24FB-EA10-48F4-9625-0EFA3584FBFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057B24FB-EA10-48F4-9625-0EFA3584FBFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057B24FB-EA10-48F4-9625-0EFA3584FBFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +59,9 @@ Global
 		{212C8A76-D968-40DD-AD96-FD44E9502D49} = {9743DCE6-0429-4AE7-9FB2-C23F97CE961E}
 		{7921B64F-27E9-4A2A-95DF-8E13FB120447} = {9743DCE6-0429-4AE7-9FB2-C23F97CE961E}
 		{FF408CC5-32A9-4961-A143-B9E4A55B108E} = {383E372C-4C9D-4C3C-8AB7-6788AE242EB9}
+		{FF0F2891-51D3-45FD-B646-A122A22B2AA9} = {1BD9037C-3B74-4A45-96EE-674BD2190EDC}
+		{2555E4E3-12B6-4F00-9B65-E2DC45B75A15} = {383E372C-4C9D-4C3C-8AB7-6788AE242EB9}
+		{057B24FB-EA10-48F4-9625-0EFA3584FBFE} = {1BD9037C-3B74-4A45-96EE-674BD2190EDC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5C6F9720-ADFD-4BF6-82BB-46E7F82334E0}

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ServiceStack" Version="5.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Beezy.BackendTest.Domain\Beezy.BackendTest.Domain.csproj" />
+    <ProjectReference Include="..\Beezy.BackendTest.Infrastructure.CrossCutting\Beezy.BackendTest.Infrastructure.CrossCutting.csproj" />
+  </ItemGroup>
+
+</Project>
