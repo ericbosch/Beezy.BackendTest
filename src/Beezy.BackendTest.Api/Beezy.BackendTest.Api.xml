@@ -223,8 +223,5 @@
             Indicates if the TV show are concluded or not.
             </summary>
         </member>
-        <member name="M:Beezy.BackendTest.Api.Models.Recommendations.TvShowRecommendationResponse.#ctor(System.Int32,System.Int32,System.Boolean)">
-            <inheritdoc />
-        </member>
     </members>
 </doc>

@@ -10,10 +10,10 @@ namespace Beezy.BackendTest.Api.Extensions
     {
         public static IEnumerable<OnScreenMovieRecommendation> ToDto(this List<MovieInfo> movies)
         {
-            return movies.Select((movie, index) => new OnScreenMovieRecommendation()
-            {
-                Screen = index+1,
-                Movie = new MovieRecommendationResponse()
+            return movies.Select((movie, index) => new OnScreenMovieRecommendation
+            (
+                index+1,
+                new MovieRecommendationResponse()
                 {
                     Overview = movie.Overview,
                     ReleaseDate = movie.ReleaseDate,
@@ -24,7 +24,7 @@ namespace Beezy.BackendTest.Api.Extensions
                     WebSite = string.Empty,
                 }
 
-            });
+            ));
         }
     }
 }

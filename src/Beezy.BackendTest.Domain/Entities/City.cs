@@ -4,15 +4,19 @@ namespace Beezy.BackendTest.Domain.Entities
 {
     public partial class City
     {
-        public City()
+
+        public int Id { get; }
+        public string Name { get; }
+        public int Population { get; }
+
+        public virtual ICollection<Cinema> Cinema { get; }
+
+        public City(int id, string cityName, int cityPopulation)
         {
+            Id = id;
+            Name = cityName;
+            Population = cityPopulation;
             Cinema = new HashSet<Cinema>();
         }
-
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Population { get; set; }
-
-        public virtual ICollection<Cinema> Cinema { get; set; }
     }
 }

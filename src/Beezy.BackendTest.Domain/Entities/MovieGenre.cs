@@ -1,8 +1,13 @@
 ﻿namespace Beezy.BackendTest.Domain.Entities
 {
-    public partial class MovieGenre
+    public class MovieGenre
     {
-        public int MovieId { get; set; }
-        public int GenreId { get; set; }
+        public int MovieId { get; }
+        public int GenreId { get; }
+        public MovieGenre(int movieId, int genreId)
+        {
+            MovieId = movieId;
+            GenreId = genreId;
+        }
     }
 }

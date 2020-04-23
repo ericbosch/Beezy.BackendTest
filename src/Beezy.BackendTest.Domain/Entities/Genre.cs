@@ -1,8 +1,15 @@
 ﻿namespace Beezy.BackendTest.Domain.Entities
 {
-    public partial class Genre
+    public class Genre
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+
+        public int Id { get; }
+        public string Name { get; }
+
+        public Genre(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }

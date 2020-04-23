@@ -1,17 +1,25 @@
-﻿namespace Beezy.BackendTest.Api.Models.Recommendations
+﻿#pragma warning disable 1591
+namespace Beezy.BackendTest.Api.Models.Recommendations
 {
     /// <summary>
     /// Container model for suggested movies for each theater
     /// </summary>
     public class OnScreenMovieRecommendation
     {
+
         /// <summary>
         /// Screen identifier
         /// </summary>
-        public int Screen { get; set; }
+        public int Screen { get; }
         /// <summary>
         /// Movie recommended to show
         /// </summary>
-        public MovieRecommendationResponse Movie { get; set; }
+        public MovieRecommendationResponse Movie { get; }
+
+        public OnScreenMovieRecommendation(int screen, MovieRecommendationResponse movie)
+        {
+            Screen = screen;
+            Movie = movie;
+        }
     }
 }
