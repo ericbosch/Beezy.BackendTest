@@ -12,7 +12,7 @@ namespace Beezy.BackendTest.Api.Extensions
         {
             return movies.Select((movie, index) => new OnScreenMovieRecommendation()
             {
-                Screen = index,
+                Screen = index+1,
                 Movie = new MovieRecommendationResponse()
                 {
                     Overview = movie.Overview,

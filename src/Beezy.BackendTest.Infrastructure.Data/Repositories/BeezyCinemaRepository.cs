@@ -42,15 +42,13 @@ namespace Beezy.BackendTest.Infrastructure.Data.Repositories
                     m.Session.Select(s => new { movie = m, seats = s.SeatsSold, size = s.Room?.Size }))
                 .GroupBy(m => new { m.movie, m.size }, m => m.seats.Value,
                     (size, seats) => new { movieWithSeats = size, seatsSold = seats.Sum() })
-                .Select(movieItem => new MovieInfo(
-                    movieItem.movieWithSeats.movie.OriginalTitle,
+                .Select(movieItem => MovieInfo.Create(movieItem.movieWithSeats.movie.OriginalTitle,
                     string.Empty,
                     GetMoviesGenre(genresByMovie, genres, movieItem.movieWithSeats.movie.Id),
                     movieItem.movieWithSeats.movie.OriginalLanguage,
                     movieItem.movieWithSeats.movie.ReleaseDate,
                     movieItem.seatsSold,
-                    ScreenSize.Create(movieItem.movieWithSeats.size)
-                    ));
+                    ScreenSize.Create(movieItem.movieWithSeats.size)));
         }
 
         private IReadOnlyList<string> GetMoviesGenre(List<MovieGenre> genresByMovie, List<Genre> genres, int movieId)

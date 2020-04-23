@@ -51,12 +51,11 @@ namespace Beezy.BackendTest.Domain.Queries.IntelligentBillboard
 
             for (int week = 0; week < totalWeeks; week++)
             {
-                var billboard = new Billboard
-                {
-                    StartDate = startDate,
-                    BigScreenMovies = GetMoviesWithValidReleaseDateAndSize(movies, request.BigRooms, startDate, MovieInfo.BigScreen).ValueOr(() => new List<MovieInfo>()),
-                    SmallScreenMovies = GetMoviesWithValidReleaseDateAndSize(movies, request.SmallRooms, startDate, MovieInfo.SmallScreen).ValueOr(() => new List<MovieInfo>()),
-                };
+                var billboard = Billboard.Create(startDate,
+                    GetMoviesWithValidReleaseDateAndSize(movies, request.BigRooms, startDate, MovieInfo.BigScreen)
+                        .ValueOr(() => new List<MovieInfo>()),
+                    GetMoviesWithValidReleaseDateAndSize(movies, request.SmallRooms, startDate, MovieInfo.SmallScreen)
+                        .ValueOr(() => new List<MovieInfo>()));
                 movies = movies.Where(m =>
                     !billboard.BigScreenMovies.Contains(m) && !billboard.SmallScreenMovies.Contains(m)).ToList();
                 startDate = startDate.AddDays(weekLength);

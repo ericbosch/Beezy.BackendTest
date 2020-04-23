@@ -43,98 +43,76 @@ namespace Beezy.BackendTest.Api.Tests.Controllers.Managers
             return new GetIntelligentBillboardResponse(
                 new List<Billboard>
                 {
-                    new Billboard
-                    {
-                        StartDate = new DateTime(2020, 4, 20),
-                        SmallScreenMovies = new List<MovieInfo>()
+                    Billboard.Create(new DateTime(2020, 4, 20),
+                        new List<MovieInfo>()
                         {
-                            new MovieInfo(
-                                "Title1",
+                            MovieInfo.Create("Title1",
                                 "Overview 1",
-                                new List<string>(){"Action", "Adventure"},
+                                new List<string>() {"Action", "Adventure"},
                                 "es",
                                 new DateTime(2020, 4, 20),
                                 800,
-                                MovieInfo.SmallScreen
-                            ),
-                            new MovieInfo(
-                                "Title2",
+                                MovieInfo.SmallScreen),
+                            MovieInfo.Create("Title2",
                                 "Overview 2",
-                                new List<string>(){"Action", "Adventure"},
+                                new List<string>() {"Action", "Adventure"},
                                 "es",
                                 new DateTime(2020, 4, 20),
                                 700,
-                                MovieInfo.SmallScreen
-                            )
+                                MovieInfo.SmallScreen)
                         },
-                        BigScreenMovies = new List<MovieInfo>()
+                        new List<MovieInfo>()
                         {
-                            new MovieInfo(
-                                "Title3",
+                            MovieInfo.Create("Title3",
                                 "Overview 3",
-                                new List<string>(){"Action", "Adventure"},
+                                new List<string>() {"Action", "Adventure"},
                                 "es",
                                 new DateTime(2020, 4, 20),
                                 600,
-                                MovieInfo.BigScreen
-                            ),
-                            new MovieInfo(
-                                "Title4",
+                                MovieInfo.BigScreen),
+                            MovieInfo.Create("Title4",
                                 "Overview 4",
-                                new List<string>(){"Action", "Adventure"},
+                                new List<string>() {"Action", "Adventure"},
                                 "es",
                                 new DateTime(2020, 4, 20),
                                 500,
-                                MovieInfo.BigScreen
-                            )
-                        }
-                    },
-                    new Billboard
-                    {
-                        StartDate = new DateTime(2020, 4, 27),
-                        SmallScreenMovies = new List<MovieInfo>()
+                                MovieInfo.BigScreen)
+                        }),
+                    Billboard.Create(new DateTime(2020, 4, 27),
+                        new List<MovieInfo>()
                         {
-                            new MovieInfo(
-                                "Title5",
+                            MovieInfo.Create("Title5",
                                 "Overview 5",
-                                new List<string>(){"Action", "Adventure"},
+                                new List<string>() {"Action", "Adventure"},
                                 "es",
                                 new DateTime(2020, 4, 27),
                                 400,
-                                MovieInfo.SmallScreen
-                            ),
-                            new MovieInfo(
-                                "Title6",
+                                MovieInfo.SmallScreen),
+                            MovieInfo.Create("Title6",
                                 "Overview 6",
-                                new List<string>(){"Action", "Adventure"},
+                                new List<string>() {"Action", "Adventure"},
                                 "es",
                                 new DateTime(2020, 4, 27),
                                 300,
-                                MovieInfo.SmallScreen
-                            )
+                                MovieInfo.SmallScreen)
                         },
-                        BigScreenMovies = new List<MovieInfo>()
+                        new List<MovieInfo>()
                         {
-                            new MovieInfo(
-                                "Title7",
+                            MovieInfo.Create("Title7",
                                 "Overview 7",
-                                new List<string>(){"Action", "Adventure"},
+                                new List<string>() {"Action", "Adventure"},
                                 "es",
                                 new DateTime(2020, 4, 27),
                                 200,
-                                MovieInfo.BigScreen
-                            ),
-                            new MovieInfo(
-                                "Title8",
+                                MovieInfo.BigScreen),
+                            MovieInfo.Create("Title8",
                                 "Overview 8",
-                                new List<string>(){"Action", "Adventure"},
+                                new List<string>() {"Action", "Adventure"},
                                 "es",
                                 new DateTime(2020, 4, 27),
                                 100,
-                                MovieInfo.BigScreen
-                            )
-                        }
-                    }
+                                MovieInfo.BigScreen)
+                        })
                 }.SomeNotNull());
         }
         #endregion
