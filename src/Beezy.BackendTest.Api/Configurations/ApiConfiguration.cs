@@ -5,11 +5,13 @@ using Beezy.BackendTest.Api.Services;
 using Beezy.BackendTest.Domain;
 using Beezy.BackendTest.Domain.Proxies;
 using Beezy.BackendTest.Domain.Queries.IntelligentBillboard;
+using Beezy.BackendTest.Domain.Repositories;
 using Beezy.BackendTest.Infrastructure.CrossCutting.HealthCheck;
 using Beezy.BackendTest.Infrastructure.CrossCutting.Swagger;
 using Beezy.BackendTest.Infrastructure.CrossCutting.Settings;
 using Beezy.BackendTest.Infrastructure.Data.DbContext;
 using Beezy.BackendTest.Infrastructure.Data.Proxies;
+using Beezy.BackendTest.Infrastructure.Data.Repositories;
 using HealthChecks.UI.Client;
 using Hellang.Middleware.ProblemDetails;
 using MediatR;
@@ -45,8 +47,9 @@ namespace Beezy.BackendTest.Api.Configurations
             services.ConfigureLogger(configuration);
             services.AddSingleton<ITheMovieDbProxy, TheMovieDbProxy>();
             services.AddSingleton<IDateService, DateService>();
+            services.AddScoped<IBeezyCinemaRepository, BeezyCinemaRepository>();
             services.AddDbContext<BeezyCinemaContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString(GetDatabaseSettings(configuration).ConnectionString)));
+                options.UseSqlServer(GetDatabaseSettings(configuration).ConnectionString));
         }
 
         public static void Configure(IApplicationBuilder app, IApiVersionDescriptionProvider provider)

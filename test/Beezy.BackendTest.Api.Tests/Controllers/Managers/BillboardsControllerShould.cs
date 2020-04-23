@@ -46,117 +46,93 @@ namespace Beezy.BackendTest.Api.Tests.Controllers.Managers
                     new Billboard
                     {
                         StartDate = new DateTime(2020, 4, 20),
-                        SmallScreenMovies = new List<Movie>()
+                        SmallScreenMovies = new List<MovieInfo>()
                         {
-                            new Movie
-                            {
-                                Adult = false, BackdropPath = "path1",
-                                GenreIds = new List<int> {1},
-                                Id = 1,
-                                OriginalLanguage = "es",
-                                OriginalTitle = "Original Title 1",
-                                Overview = "Overview 1",
-                                Genres = {"1"}, Title = "Title1", ReleaseDate = new DateTime(2020, 4, 20),
-                                VoteCount = 1, Video = false, PosterPath = "PosterPath1", VoteAverage = 1,
-                                Popularity = 1
-                            },
-                            new Movie
-                            {
-                                Adult = false, BackdropPath = "path2",
-                                GenreIds = new List<int> {2},
-                                Id = 2,
-                                OriginalLanguage = "es",
-                                OriginalTitle = "Original Title 2",
-                                Overview = "Overview 2",
-                                Genres = {"2"}, Title = "Title2", ReleaseDate = new DateTime(2020, 4, 20),
-                                VoteCount = 2, Video = false, PosterPath = "PosterPath2", VoteAverage = 1,
-                                Popularity = 2
-                            }
+                            new MovieInfo(
+                                "Title1",
+                                "Overview 1",
+                                new List<string>(){"Action", "Adventure"},
+                                "es",
+                                new DateTime(2020, 4, 20),
+                                800,
+                                MovieInfo.SmallScreen
+                            ),
+                            new MovieInfo(
+                                "Title2",
+                                "Overview 2",
+                                new List<string>(){"Action", "Adventure"},
+                                "es",
+                                new DateTime(2020, 4, 20),
+                                700,
+                                MovieInfo.SmallScreen
+                            )
                         },
-                        BigScreenMovies = new List<Movie>()
+                        BigScreenMovies = new List<MovieInfo>()
                         {
-                            new Movie
-                            {
-                                Adult = false, BackdropPath = "path3",
-                                GenreIds = new List<int> {3},
-                                Id = 3,
-                                OriginalLanguage = "es",
-                                OriginalTitle = "Original Title 3",
-                                Overview = "Overview 3",
-                                Genres = {"3"}, Title = "Title3", ReleaseDate = new DateTime(2020, 4, 20),
-                                VoteCount = 300, Video = false, PosterPath = "PosterPath1", VoteAverage = 300,
-                                Popularity = 300
-                            },
-                            new Movie
-                            {
-                                Adult = false, BackdropPath = "path4",
-                                GenreIds = new List<int> {4},
-                                Id = 4,
-                                OriginalLanguage = "es",
-                                OriginalTitle = "Original Title 4",
-                                Overview = "Overview 4",
-                                Genres = {"4"}, Title = "Title4", ReleaseDate = new DateTime(2020, 4, 20),
-                                VoteCount = 400, Video = false, PosterPath = "PosterPath4", VoteAverage = 400,
-                                Popularity = 400
-                            }
+                            new MovieInfo(
+                                "Title3",
+                                "Overview 3",
+                                new List<string>(){"Action", "Adventure"},
+                                "es",
+                                new DateTime(2020, 4, 20),
+                                600,
+                                MovieInfo.BigScreen
+                            ),
+                            new MovieInfo(
+                                "Title4",
+                                "Overview 4",
+                                new List<string>(){"Action", "Adventure"},
+                                "es",
+                                new DateTime(2020, 4, 20),
+                                500,
+                                MovieInfo.BigScreen
+                            )
                         }
                     },
                     new Billboard
                     {
                         StartDate = new DateTime(2020, 4, 27),
-                        SmallScreenMovies = new List<Movie>()
+                        SmallScreenMovies = new List<MovieInfo>()
                         {
-                            new Movie
-                            {
-                                Adult = false, BackdropPath = "path5",
-                                GenreIds = new List<int> {5},
-                                Id = 5,
-                                OriginalLanguage = "es",
-                                OriginalTitle = "Original Title 5",
-                                Overview = "Overview 5",
-                                Genres = {"5"}, Title = "Title5", ReleaseDate = new DateTime(2020, 4, 27),
-                                VoteCount = 5, Video = false, PosterPath = "PosterPath5", VoteAverage = 5,
-                                Popularity = 5
-                            },
-                            new Movie
-                            {
-                                Adult = false, BackdropPath = "path6",
-                                GenreIds = new List<int> {6},
-                                Id = 6,
-                                OriginalLanguage = "es",
-                                OriginalTitle = "Original Title 6",
-                                Overview = "Overview 6",
-                                Genres = {"6"}, Title = "Title6", ReleaseDate = new DateTime(2020, 4, 27),
-                                VoteCount = 6, Video = false, PosterPath = "PosterPath6", VoteAverage = 6,
-                                Popularity = 6
-                            }
+                            new MovieInfo(
+                                "Title5",
+                                "Overview 5",
+                                new List<string>(){"Action", "Adventure"},
+                                "es",
+                                new DateTime(2020, 4, 27),
+                                400,
+                                MovieInfo.SmallScreen
+                            ),
+                            new MovieInfo(
+                                "Title6",
+                                "Overview 6",
+                                new List<string>(){"Action", "Adventure"},
+                                "es",
+                                new DateTime(2020, 4, 27),
+                                300,
+                                MovieInfo.SmallScreen
+                            )
                         },
-                        BigScreenMovies = new List<Movie>()
+                        BigScreenMovies = new List<MovieInfo>()
                         {
-                            new Movie
-                            {
-                                Adult = false, BackdropPath = "path7",
-                                GenreIds = new List<int> {7},
-                                Id = 7,
-                                OriginalLanguage = "es",
-                                OriginalTitle = "Original Title 7",
-                                Overview = "Overview 7",
-                                Genres = {"7"}, Title = "Title7", ReleaseDate = new DateTime(2020, 4, 27),
-                                VoteCount = 700, Video = false, PosterPath = "PosterPath7", VoteAverage = 700,
-                                Popularity = 700
-                            },
-                            new Movie
-                            {
-                                Adult = false, BackdropPath = "path8",
-                                GenreIds = new List<int> {8},
-                                Id = 8,
-                                OriginalLanguage = "es",
-                                OriginalTitle = "Original Title 8",
-                                Overview = "Overview 8",
-                                Genres = {"8"}, Title = "Title8", ReleaseDate = new DateTime(2020, 4, 27),
-                                VoteCount = 800, Video = false, PosterPath = "PosterPath8", VoteAverage = 800,
-                                Popularity = 800
-                            }
+                            new MovieInfo(
+                                "Title7",
+                                "Overview 7",
+                                new List<string>(){"Action", "Adventure"},
+                                "es",
+                                new DateTime(2020, 4, 27),
+                                200,
+                                MovieInfo.BigScreen
+                            ),
+                            new MovieInfo(
+                                "Title8",
+                                "Overview 8",
+                                new List<string>(){"Action", "Adventure"},
+                                "es",
+                                new DateTime(2020, 4, 27),
+                                100,
+                                MovieInfo.BigScreen
+                            )
                         }
                     }
                 }.SomeNotNull());

@@ -7,6 +7,6 @@ namespace Beezy.BackendTest.Domain.Proxies
 {
     public interface ITheMovieDbProxy
     {
-        public Task<Option<List<Movie>>> GetMovies();
+        public Task<Option<List<MovieInfo>>> GetMovies();
     }
 }

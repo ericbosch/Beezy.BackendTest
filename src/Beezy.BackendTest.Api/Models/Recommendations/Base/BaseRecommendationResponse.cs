@@ -19,7 +19,7 @@ namespace Beezy.BackendTest.Api.Models.Recommendations.Base
         /// <summary>
         /// Genres which belongs the movie, TV show or documentary
         /// </summary>
-        public List<string> Genres { get; set; }
+        public IReadOnlyList<string> Genres { get; set; }
         /// <summary>
         /// Language of the movie, TV show or documentary
         /// </summary>
@@ -35,6 +35,6 @@ namespace Beezy.BackendTest.Api.Models.Recommendations.Base
         /// <summary>
         /// Keywords used to identify the movie, TV show or documentary
         /// </summary>
-        public List<string> Keywords { get; set; }
+        public IReadOnlyList<string> Keywords { get; set; }
     }
 }

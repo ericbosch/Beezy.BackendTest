@@ -41,4 +41,10 @@
     <ProjectReference Include="..\Beezy.BackendTest.Infrastructure.Data\Beezy.BackendTest.Infrastructure.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

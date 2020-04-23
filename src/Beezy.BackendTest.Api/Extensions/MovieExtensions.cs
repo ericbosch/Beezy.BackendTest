@@ -8,7 +8,7 @@ namespace Beezy.BackendTest.Api.Extensions
 {
     public static class MovieExtensions
     {
-        public static IEnumerable<OnScreenMovieRecommendation> ToDto(this List<Movie> movies)
+        public static IEnumerable<OnScreenMovieRecommendation> ToDto(this List<MovieInfo> movies)
         {
             return movies.Select((movie, index) => new OnScreenMovieRecommendation()
             {
@@ -19,7 +19,7 @@ namespace Beezy.BackendTest.Api.Extensions
                     ReleaseDate = movie.ReleaseDate,
                     Genres = movie.Genres,
                     Keywords = new List<string>(),
-                    Language = movie.OriginalLanguage,
+                    Language = movie.Language,
                     Title = movie.Title,
                     WebSite = string.Empty,
                 }

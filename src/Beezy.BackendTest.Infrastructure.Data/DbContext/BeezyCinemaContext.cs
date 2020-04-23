@@ -1,7 +1,5 @@
-﻿using System;
-using Beezy.BackendTest.Domain.Entities;
+﻿using Beezy.BackendTest.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Beezy.BackendTest.Infrastructure.Data.DbContext
 {
