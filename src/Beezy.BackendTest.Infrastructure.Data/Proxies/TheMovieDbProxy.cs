@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Beezy.BackendTest.Domain.Proxies;
 using Beezy.BackendTest.Domain.Queries.IntelligentBillboard.Models;
 using Beezy.BackendTest.Infrastructure.CrossCutting.Settings;
 using Beezy.BackendTest.Infrastructure.Data.Models;
+using Newtonsoft.Json;
 using Optional;
 using ServiceStack;
 
@@ -35,7 +37,8 @@ namespace Beezy.BackendTest.Infrastructure.Data.Proxies
         private async Task<List<MovieInfo>> GetMoviesForScreenSize(string request, int page, ScreenSize screenSize)
         {
             var apiResult = await request.AddQueryParam("page", page).GetJsonFromUrlAsync();
-            var tmdbResponse = apiResult.FromJson<TheMovieDbResponse>();
+            
+            var tmdbResponse = DeserializeResponse(apiResult);
 
             return tmdbResponse?.Results?.Select(movie => new MovieInfo
             (
@@ -49,7 +52,14 @@ namespace Beezy.BackendTest.Infrastructure.Data.Proxies
             )).ToList();
         }
 
-        private IReadOnlyList<string> GetMovieGenres(List<int> movieGenreIds)
+        private static TheMovieDbResponse DeserializeResponse(string apiResult)
+        {
+            JsonReader reader = new JsonTextReader(new StringReader(apiResult));
+            var tmdbResponse = JsonSerializer.Create().Deserialize<TheMovieDbResponse>(reader);
+            return tmdbResponse;
+        }
+
+        private IReadOnlyList<string> GetMovieGenres(int[] movieGenreIds)
         {
             return movieGenreIds.Select(g => g.ToString()).ToList();
         }
