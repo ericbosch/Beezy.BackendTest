@@ -12,6 +12,6 @@ namespace Beezy.BackendTest.Api.Models.Billboards
         /// <summary>
         /// Directory of movies to screen on the theater
         /// </summary>
-        public List<OnScreenMovieRecommendation> OnScreenMovies { get; set; }
+        public List<OnScreenMovieRecommendation> OnScreenMovies { get; }
     }
 }

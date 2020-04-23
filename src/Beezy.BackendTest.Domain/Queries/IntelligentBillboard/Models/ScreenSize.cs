@@ -15,7 +15,7 @@ namespace Beezy.BackendTest.Domain.Queries.IntelligentBillboard.Models
 
         public static ScreenSize Create(string size)
         {
-            if (String.IsNullOrEmpty(size))
+            if (string.IsNullOrEmpty(size))
                 throw new ArgumentException("ScreenSize cannot be null or empty. Possible values: Big, Small.");
             return new ScreenSize(size);
         }
