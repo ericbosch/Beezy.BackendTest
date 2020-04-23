@@ -122,6 +122,18 @@
             Directory of movies to screen on small rooms on the theater
             </summary>
         </member>
+        <member name="M:Beezy.BackendTest.Api.Models.Billboards.IntelligentBillboardResponse.#ctor(System.DateTime,System.Collections.Generic.List{Beezy.BackendTest.Api.Models.Recommendations.OnScreenMovieRecommendation},System.Collections.Generic.List{Beezy.BackendTest.Api.Models.Recommendations.OnScreenMovieRecommendation})">
+            <inheritdoc />
+        </member>
+        <member name="M:Beezy.BackendTest.Api.Models.Billboards.IntelligentBillboardResponse.Create(System.DateTime,System.Collections.Generic.List{Beezy.BackendTest.Api.Models.Recommendations.OnScreenMovieRecommendation},System.Collections.Generic.List{Beezy.BackendTest.Api.Models.Recommendations.OnScreenMovieRecommendation})">
+            <summary>
+            Factory for IntelligentBillboardResponse
+            </summary>
+            <param name="startDate"></param>
+            <param name="bigScreenMovies"></param>
+            <param name="smallScreenMovies"></param>
+            <returns></returns>
+        </member>
         <member name="T:Beezy.BackendTest.Api.Models.Billboards.SuggestedBillboardResponse">
             <summary>
             Container model for suggested billboard

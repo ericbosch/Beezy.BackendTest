@@ -9,12 +9,9 @@ namespace Beezy.BackendTest.Api.Extensions
     {
         public static IntelligentBillboardResponse ToDto(this Billboard billboard)
         {
-            return new IntelligentBillboardResponse()
-            {
-                StartDate = billboard.StartDate,
-                BigScreenMovies = billboard.BigScreenMovies.ToDto().ToList(),
-                SmallScreenMovies = billboard.SmallScreenMovies.ToDto().ToList()
-            };
+            return IntelligentBillboardResponse.Create(billboard.StartDate,
+                billboard.BigScreenMovies.ToDto().ToList(),
+                billboard.SmallScreenMovies.ToDto().ToList());
         }
     }
 }

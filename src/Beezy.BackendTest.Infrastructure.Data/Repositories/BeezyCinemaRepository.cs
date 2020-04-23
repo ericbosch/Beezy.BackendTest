@@ -34,14 +34,12 @@ namespace Beezy.BackendTest.Infrastructure.Data.Repositories
 
         private IEnumerable<MovieInfo> GetMovieInfo(List<Movie> movies, List<Genre> genres, List<MovieGenre> genresByMovie)
         {
-            var aux = movies.SelectMany(m =>
-                m.Session.Select(s => new {movie = m, seats = s.SeatsSold, size = s.Room?.Size}));
-            var auxGrouped = aux.GroupBy(m => new {m.movie, m.size}, m => m.seats.Value,
-                (movie, seats) => new {movieWithSeats = movie, seatsSold = seats.Sum()});
             return movies.SelectMany(m =>
                     m.Session.Select(s => new { movie = m, seats = s.SeatsSold, size = s.Room?.Size }))
                 .GroupBy(m => new { m.movie, m.size }, m => m.seats.Value,
                     (size, seats) => new { movieWithSeats = size, seatsSold = seats.Sum() })
+                .OrderByDescending(m => m.seatsSold)
+                .ThenByDescending(m => m.movieWithSeats.movie.ReleaseDate)
                 .Select(movieItem => MovieInfo.Create(movieItem.movieWithSeats.movie.OriginalTitle,
                     string.Empty,
                     GetMoviesGenre(genresByMovie, genres, movieItem.movieWithSeats.movie.Id),

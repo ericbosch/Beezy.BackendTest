@@ -40,13 +40,17 @@ namespace Beezy.BackendTest.Infrastructure.Data.Proxies
             
             var tmdbResponse = DeserializeResponse(apiResult);
 
-            return tmdbResponse?.Results?.Select(movie => MovieInfo.Create(movie.Title,
-                movie.Overview,
-                GetMovieGenres(movie.GenreIds),
-                movie.OriginalLanguage,
-                movie.ReleaseDate,
-                movie.VoteCount,
-                screenSize)).ToList();
+            return tmdbResponse?.Results?
+                .Select(movie => MovieInfo.Create(movie.Title,
+                    movie.Overview,
+                    GetMovieGenres(movie.GenreIds),
+                    movie.OriginalLanguage,
+                    movie.ReleaseDate,
+                    movie.VoteCount,
+                    screenSize))
+                .OrderByDescending(m => m.Ranking)
+                .ThenByDescending(m => m.ReleaseDate)
+                .ToList();
         }
 
         private static TheMovieDbResponse DeserializeResponse(string apiResult)

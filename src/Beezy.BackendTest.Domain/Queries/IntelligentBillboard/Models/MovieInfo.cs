@@ -14,7 +14,7 @@ namespace Beezy.BackendTest.Domain.Queries.IntelligentBillboard.Models
         public IReadOnlyList<string> Genres { get; }
         public string Language { get; }
         public DateTime ReleaseDate { get; }
-        public int SeatsSold { get; }
+        public int Ranking { get; }
         public ScreenSize ScreenSize { get; }
 
         private MovieInfo(
@@ -23,7 +23,7 @@ namespace Beezy.BackendTest.Domain.Queries.IntelligentBillboard.Models
             IReadOnlyList<string> genres,
             string language,
             DateTime releaseDate,
-            int seatsSold,
+            int ranking,
             ScreenSize screenSize)
         {
             Title = title;
@@ -31,12 +31,12 @@ namespace Beezy.BackendTest.Domain.Queries.IntelligentBillboard.Models
             Genres = genres;
             Language = language;
             ReleaseDate = releaseDate;
-            SeatsSold = seatsSold;
+            Ranking = ranking;
             ScreenSize = screenSize;
         }
-        public static MovieInfo Create(string title, string overview, IReadOnlyList<string> genres, string language, DateTime releaseDate, int seatsSold, ScreenSize screenSize)
+        public static MovieInfo Create(string title, string overview, IReadOnlyList<string> genres, string language, DateTime releaseDate, int ranking, ScreenSize screenSize)
         {
-            return new MovieInfo(title, overview, genres, language, releaseDate, seatsSold, screenSize);
+            return new MovieInfo(title, overview, genres, language, releaseDate, ranking, screenSize);
         }
     }
 }
