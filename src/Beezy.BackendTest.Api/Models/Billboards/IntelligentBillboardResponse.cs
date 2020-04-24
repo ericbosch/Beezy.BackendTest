@@ -14,12 +14,17 @@ namespace Beezy.BackendTest.Api.Models.Billboards
         /// <summary>
         /// Directory of movies to screen on big rooms on the theater
         /// </summary>
-        public List<OnScreenMovieRecommendation> BigScreenMovies { get; }
+        public List<OnScreenMovieRecommendation> BigScreenMovies { get; set; }
 
         /// <summary>
         /// Directory of movies to screen on small rooms on the theater
         /// </summary>
-        public List<OnScreenMovieRecommendation> SmallScreenMovies { get; }
+        public List<OnScreenMovieRecommendation> SmallScreenMovies { get; set; }
+
+        /// <inheritdoc />
+        public IntelligentBillboardResponse()
+        {
+        }
 
         /// <inheritdoc />
         private IntelligentBillboardResponse(DateTime startDate, List<OnScreenMovieRecommendation> bigScreenMovies, List<OnScreenMovieRecommendation> smallScreenMovies)

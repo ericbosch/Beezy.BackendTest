@@ -10,6 +10,6 @@ namespace Beezy.BackendTest.Api.Models.Billboards.Base
         /// <summary>
         /// Start date of the billboard to distinguish between them.
         /// </summary>
-        public DateTime StartDate { get; protected set; }
+        public DateTime StartDate { get; set; }
     }
 }

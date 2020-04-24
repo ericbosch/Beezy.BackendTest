@@ -4,10 +4,15 @@ namespace Beezy.BackendTest.Domain.Queries.IntelligentBillboard
 {
     public class GetIntelligentBillboardRequest : IRequest<GetIntelligentBillboardResponse>
     {
-        public int TimePeriod { get; }
-        public int BigRooms { get; }
-        public int SmallRooms { get; }
-        public bool BasedOnCity { get; }
+        public int TimePeriod { get; protected set; }
+        public int BigRooms { get; protected set; }
+        public int SmallRooms { get; protected set; }
+        public bool BasedOnCity { get; protected set; }
+
+        public GetIntelligentBillboardRequest()
+        {
+
+        }
 
         public GetIntelligentBillboardRequest(int timePeriod, int bigRooms, int smallRooms, bool basedOnCity)
         {

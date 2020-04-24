@@ -10,11 +10,16 @@ namespace Beezy.BackendTest.Api.Models.Recommendations
         /// <summary>
         /// Screen identifier
         /// </summary>
-        public int Screen { get; }
+        public int Screen { get; set; }
         /// <summary>
         /// Movie recommended to show
         /// </summary>
-        public MovieRecommendationResponse Movie { get; }
+        public MovieRecommendationResponse Movie { get; set; }
+
+        public OnScreenMovieRecommendation()
+        {
+
+        }
 
         public OnScreenMovieRecommendation(int screen, MovieRecommendationResponse movie)
         {

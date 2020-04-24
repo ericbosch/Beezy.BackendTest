@@ -122,6 +122,9 @@
             Directory of movies to screen on small rooms on the theater
             </summary>
         </member>
+        <member name="M:Beezy.BackendTest.Api.Models.Billboards.IntelligentBillboardResponse.#ctor">
+            <inheritdoc />
+        </member>
         <member name="M:Beezy.BackendTest.Api.Models.Billboards.IntelligentBillboardResponse.#ctor(System.DateTime,System.Collections.Generic.List{Beezy.BackendTest.Api.Models.Recommendations.OnScreenMovieRecommendation},System.Collections.Generic.List{Beezy.BackendTest.Api.Models.Recommendations.OnScreenMovieRecommendation})">
             <inheritdoc />
         </member>
