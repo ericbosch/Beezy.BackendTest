@@ -65,7 +65,13 @@ namespace Beezy.BackendTest.Infrastructure.Data.DbContext
                     .IsRequired()
                     .HasMaxLength(512);
 
+                entity.HasMany(d => d.Session)
+                    .WithOne(p => p.Movie);
+
                 entity.Property(e => e.ReleaseDate).HasColumnType("datetime");
+
+                entity.HasMany(m => m.Session)
+                    .WithOne(s => s.Movie);
             });
 
             modelBuilder.Entity<MovieGenre>(entity =>
@@ -89,6 +95,9 @@ namespace Beezy.BackendTest.Infrastructure.Data.DbContext
                     .HasForeignKey(d => d.CinemaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Room_Cinema");
+
+                entity.HasMany(r => r.Session)
+                    .WithOne(s => s.Room);
             });
 
             modelBuilder.Entity<Session>(entity =>

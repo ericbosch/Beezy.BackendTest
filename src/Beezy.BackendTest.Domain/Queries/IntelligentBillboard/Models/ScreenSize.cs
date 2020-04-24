@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Beezy.BackendTest.Domain.Queries.IntelligentBillboard.Models
 {

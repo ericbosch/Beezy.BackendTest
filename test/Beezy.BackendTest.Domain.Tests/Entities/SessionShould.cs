@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using AutoFixture.Xunit2;
 using Beezy.BackendTest.Domain.Entities;
 using FluentAssertions;

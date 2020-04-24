@@ -2,10 +2,10 @@
 {
     public class MovieGenre
     {
-        public int MovieId { get; }
-        public int GenreId { get; }
+        public int MovieId { get; set; }
+        public int GenreId { get; set; }
 
-        private MovieGenre()
+        public MovieGenre()
         {
 
         }

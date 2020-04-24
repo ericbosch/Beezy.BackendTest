@@ -6,15 +6,15 @@ namespace Beezy.BackendTest.Domain.Entities
     public class Movie
     {
 
-        public int Id { get; }
-        public string OriginalTitle { get; }
-        public DateTime ReleaseDate { get; }
-        public string OriginalLanguage { get; }
-        public bool Adult { get; }
+        public int Id { get; set; }
+        public string OriginalTitle { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public string OriginalLanguage { get; set; }
+        public bool Adult { get; set; }
 
         public virtual ICollection<Session> Session { get; }
 
-        private Movie()
+        public Movie()
         {
             Session = new HashSet<Session>();
         }
