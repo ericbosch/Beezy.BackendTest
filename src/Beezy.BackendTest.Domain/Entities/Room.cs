@@ -12,6 +12,12 @@ namespace Beezy.BackendTest.Domain.Entities
 
         public virtual Cinema Cinema { get; }
         public virtual ICollection<Session> Session { get; }
+
+        private Room()
+        {
+            Session = new HashSet<Session>();
+        }
+
         public Room(int id, string name, string size, int seats, int cinemaId, Cinema cinema)
         {
             Id = id;

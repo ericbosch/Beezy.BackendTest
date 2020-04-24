@@ -36,7 +36,7 @@ namespace Beezy.BackendTest.Infrastructure.Data.Repositories
         {
             return movies.SelectMany(m =>
                     m.Session.Select(s => new { movie = m, seats = s.SeatsSold, size = s.Room?.Size }))
-                .GroupBy(m => new { m.movie, m.size }, m => m.seats.Value,
+                .GroupBy(m => new { m.movie, m.size }, m => m.seats ?? 0,
                     (size, seats) => new { movieWithSeats = size, seatsSold = seats.Sum() })
                 .OrderByDescending(m => m.seatsSold)
                 .ThenByDescending(m => m.movieWithSeats.movie.ReleaseDate)

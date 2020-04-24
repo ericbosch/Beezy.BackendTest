@@ -9,10 +9,16 @@ namespace Beezy.BackendTest.Domain.Entities
         public int MovieId { get; }
         public DateTime StartTime { get; }
         public DateTime EndTime { get; }
-        public int? SeatsSold { get; }
+        public int? SeatsSold { get; private set; }
 
         public virtual Movie Movie { get; }
         public virtual Room Room { get; }
+
+        private Session()
+        {
+
+        }
+
         public Session(int id, int roomId, int movieId, DateTime startTime, DateTime endTime, int? seatsSold, Movie movie, Room room)
         {
             Id = id;

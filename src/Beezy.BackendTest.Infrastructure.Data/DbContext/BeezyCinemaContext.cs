@@ -26,6 +26,7 @@ namespace Beezy.BackendTest.Infrastructure.Data.DbContext
         {
             modelBuilder.Entity<Cinema>(entity =>
             {
+                entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255);
@@ -41,6 +42,7 @@ namespace Beezy.BackendTest.Infrastructure.Data.DbContext
 
             modelBuilder.Entity<City>(entity =>
             {
+                entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255);
@@ -48,6 +50,7 @@ namespace Beezy.BackendTest.Infrastructure.Data.DbContext
 
             modelBuilder.Entity<Genre>(entity =>
             {
+                entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255);
@@ -55,6 +58,7 @@ namespace Beezy.BackendTest.Infrastructure.Data.DbContext
 
             modelBuilder.Entity<Movie>(entity =>
             {
+                entity.HasKey(e => e.Id);
                 entity.Property(e => e.OriginalLanguage).HasMaxLength(255);
 
                 entity.Property(e => e.OriginalTitle)
@@ -71,6 +75,7 @@ namespace Beezy.BackendTest.Infrastructure.Data.DbContext
 
             modelBuilder.Entity<Room>(entity =>
             {
+                entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255);
@@ -88,6 +93,7 @@ namespace Beezy.BackendTest.Infrastructure.Data.DbContext
 
             modelBuilder.Entity<Session>(entity =>
             {
+                entity.HasKey(e => e.Id);
                 entity.Property(e => e.EndTime).HasColumnType("datetime");
 
                 entity.Property(e => e.StartTime).HasColumnType("datetime");

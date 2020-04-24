@@ -14,6 +14,11 @@ namespace Beezy.BackendTest.Domain.Entities
 
         public virtual ICollection<Session> Session { get; }
 
+        private Movie()
+        {
+            Session = new HashSet<Session>();
+        }
+
         public Movie(int id, string originalTitle, DateTime releaseDate, string originalLanguage, bool adult)
         {
             Id = id;
