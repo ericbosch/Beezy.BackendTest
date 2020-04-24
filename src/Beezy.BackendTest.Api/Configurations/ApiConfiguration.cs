@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Net.Http;
 using System.Reflection;
+using Beezy.BackendTest.Api.Behaviours;
 using Beezy.BackendTest.Api.Services;
 using Beezy.BackendTest.Domain;
 using Beezy.BackendTest.Domain.Proxies;
 using Beezy.BackendTest.Domain.Queries.IntelligentBillboard;
 using Beezy.BackendTest.Domain.Repositories;
 using Beezy.BackendTest.Infrastructure.CrossCutting.HealthCheck;
+using Beezy.BackendTest.Infrastructure.CrossCutting.Logging;
 using Beezy.BackendTest.Infrastructure.CrossCutting.Swagger;
 using Beezy.BackendTest.Infrastructure.CrossCutting.Settings;
 using Beezy.BackendTest.Infrastructure.Data.DbContext;
 using Beezy.BackendTest.Infrastructure.Data.Proxies;
 using Beezy.BackendTest.Infrastructure.Data.Repositories;
+using FluentValidation;
 using HealthChecks.UI.Client;
 using Hellang.Middleware.ProblemDetails;
 using MediatR;
@@ -40,14 +43,15 @@ namespace Beezy.BackendTest.Api.Configurations
             services.AddMediatR(typeof(GetIntelligentBillboardHandler).GetTypeInfo().Assembly);
             services.AddSingleton(serviceProvider => GetTheMovieDbApiSettings(configuration));
             services.AddApiHealthChecks();
+            services.AddSingleton<IDateService, DateService>();
+            services.AddSingleton<ITheMovieDbProxy, TheMovieDbProxy>();
+            services.AddScoped<IBeezyCinemaRepository, BeezyCinemaRepository>();
+            services.AddPipelineBehaviors();
             services.AddProblemDetails(pdo => ConfigureProblemDetails(pdo, environment));
             services.AddControllers();
             services.AddVersioning();
             services.AddSwagger();
             services.ConfigureLogger(configuration);
-            services.AddSingleton<ITheMovieDbProxy, TheMovieDbProxy>();
-            services.AddSingleton<IDateService, DateService>();
-            services.AddScoped<IBeezyCinemaRepository, BeezyCinemaRepository>();
             services.AddDbContext<BeezyCinemaContext>(options =>
                 options.UseSqlServer(GetDatabaseSettings(configuration).ConnectionString));
         }
@@ -56,8 +60,10 @@ namespace Beezy.BackendTest.Api.Configurations
         {
             app.UseStaticFiles();
 
-            app.UseProblemDetails();
+            app.UseMiddleware<LogContextMiddleware>(); // This should go in this order
+
             app.UseRouting();
+            app.UseProblemDetails();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             app.UseHealthChecks("/health", new HealthCheckOptions
             {
@@ -140,6 +146,17 @@ namespace Beezy.BackendTest.Api.Configurations
             // Because exceptions are handled polymorphically, this will act as a "catch all" mapping, which is why it's added last.
             // If an exception other than NotImplementedException and HttpRequestException is thrown, this will handle it.
             options.Map<Exception>(ex => new StatusCodeProblemDetails(StatusCodes.Status500InternalServerError));
+        }
+
+        public static void AddPipelineBehaviors(this IServiceCollection services)
+        {
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingPipelineBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidatorPipelineBehavior<,>));
+
+            services.Scan(scan => scan
+                .FromAssembliesOf(typeof(GetIntelligentBillboardHandler))
+                .AddClasses(@class => @class.AssignableTo(typeof(IValidator<>)))
+                .AsImplementedInterfaces());
         }
 
         public static void ConfigureLogger(this IServiceCollection services, IConfiguration configuration)

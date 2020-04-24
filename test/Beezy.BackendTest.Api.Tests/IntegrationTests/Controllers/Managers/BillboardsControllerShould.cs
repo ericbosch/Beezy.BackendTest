@@ -100,7 +100,7 @@ namespace Beezy.BackendTest.Api.Tests.IntegrationTests.Controllers.Managers
         private async Task SeedData(IList<Movie> movies, IList<Session> sessions, IList<Room> rooms, IList<Genre> genres, IList<MovieGenre> movieGenres)
         {
             PickRandomMovieIdForSessions(sessions, movies.Min(m => m.Id), movies.Max(m => m.Id));
-            PickRandomRoomIdForSessions(sessions, rooms.Min(r => r.Id), movies.Max(r => r.Id));
+            PickRandomRoomIdForSessions(sessions, rooms.Min(r => r.Id), rooms.Max(r => r.Id));
             PickRandomMovieAndGenreIdForMovieGenres(movieGenres, movies.Min(m => m.Id), movies.Max(m => m.Id),
                 genres.Min(g => g.Id), genres.Max(g => g.Id));
 
