@@ -12,6 +12,7 @@ namespace Beezy.BackendTest.Api.Tests.IntegrationTests.BogusData.Models
                 .RuleFor(r => r.TimePeriod, f => f.Random.Int(1, count))
                 .RuleFor(r => r.BigRooms, f => f.Random.Int(1, count))
                 .RuleFor(r => r.SmallRooms, f => f.Random.Int(1, count))
+                .RuleFor(r => r.City, f => f.Address.City())
                 .Generate(count)
                 .ToList();
     }

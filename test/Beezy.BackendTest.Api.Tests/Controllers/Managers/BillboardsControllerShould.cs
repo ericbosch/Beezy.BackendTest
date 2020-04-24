@@ -4,6 +4,7 @@ using Beezy.BackendTest.Api.Controllers.Managers;
 using Beezy.BackendTest.Api.Models.Billboards;
 using Beezy.BackendTest.Domain.Queries.IntelligentBillboard;
 using Beezy.BackendTest.Domain.Queries.IntelligentBillboard.Models;
+using Bogus;
 using FluentAssertions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +31,7 @@ namespace Beezy.BackendTest.Api.Tests.Controllers.Managers
             var controller = new BillboardsController(_mediator);
 
             //Act
-            var result = await controller.GetIntelligentBillboard(2, 2, 2, true);
+            var result = await controller.GetIntelligentBillboard(2, 2, 2, new Faker().Address.City());
 
             //Assert
             var expectedType = (List<IntelligentBillboardResponse>)Assert.IsType<OkObjectResult>(result).Value;

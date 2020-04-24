@@ -7,6 +7,6 @@ namespace Beezy.BackendTest.Domain.Repositories
 {
     public interface IBeezyCinemaRepository
     {
-        public Task<Option<List<MovieInfo>>> GetMovies();
+        public Task<Option<List<MovieInfo>>> GetMovies(string city);
     }
 }

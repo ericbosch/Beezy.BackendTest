@@ -19,7 +19,7 @@ namespace Beezy.BackendTest.Domain.Tests.Queries.IntelligentBoard
         public void Validate_The_Request(int timePeriod, int bigRooms, int smallRooms, bool valid)
         {
             var validator = new GetIntelligentBillboardValidator();
-            var request = new GetIntelligentBillboardRequest(timePeriod, bigRooms, smallRooms, Arg.Any<bool>());
+            var request = new GetIntelligentBillboardRequest(timePeriod, bigRooms, smallRooms, "anyCity");
 
             var result = validator.Validate(request);
 

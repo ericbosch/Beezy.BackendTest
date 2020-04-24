@@ -21,7 +21,7 @@
             <param name="screenNumber">Number of screens for the theater</param>
             <param name="basedOnCity">Include movies that have been successful in the city</param>
         </member>
-        <member name="M:Beezy.BackendTest.Api.Controllers.Managers.BillboardsController.GetIntelligentBillboard(System.Int32,System.Int32,System.Int32,System.Boolean)">
+        <member name="M:Beezy.BackendTest.Api.Controllers.Managers.BillboardsController.GetIntelligentBillboard(System.Int32,System.Int32,System.Int32,System.String)">
             <summary>
             Build a suggested intelligent billboard for theaters for a specific period of one or more weeks.
             </summary>
@@ -32,7 +32,7 @@
             <param name="timePeriod">Period of time (in weeks) from now</param>
             <param name="bigRooms">Number of big room screens for the theater</param>
             <param name="smallRooms">Number of small room screens for the theater</param>
-            <param name="basedOnCity">Include movies that have been successful in the city</param>
+            <param name="city">City to include movies that have been successful in the specified city</param>
         </member>
         <member name="T:Beezy.BackendTest.Api.Controllers.Managers.MoviesController">
             <inheritdoc />

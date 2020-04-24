@@ -38,6 +38,9 @@ namespace Beezy.BackendTest.Infrastructure.Data.DbContext
                     .HasForeignKey(d => d.CityId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Cinema_City");
+
+                entity.HasMany(c => c.Room)
+                    .WithOne(r => r.Cinema);
             });
 
             modelBuilder.Entity<City>(entity =>
@@ -46,6 +49,9 @@ namespace Beezy.BackendTest.Infrastructure.Data.DbContext
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                entity.HasMany(c => c.Cinema)
+                    .WithOne(c => c.City);
             });
 
             modelBuilder.Entity<Genre>(entity =>

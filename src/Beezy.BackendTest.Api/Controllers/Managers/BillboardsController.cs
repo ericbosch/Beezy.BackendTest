@@ -52,15 +52,15 @@ namespace Beezy.BackendTest.Api.Controllers.Managers
         /// <param name="timePeriod">Period of time (in weeks) from now</param>
         /// <param name="bigRooms">Number of big room screens for the theater</param>
         /// <param name="smallRooms">Number of small room screens for the theater</param>
-        /// <param name="basedOnCity">Include movies that have been successful in the city</param>
+        /// <param name="city">City to include movies that have been successful in the specified city</param>
         [HttpGet("intelligent")]
         [ProducesResponseType(typeof(List<IntelligentBillboardResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetIntelligentBillboard([FromQuery, BindRequired] int timePeriod,
             [FromQuery, BindRequired] int bigRooms, [FromQuery, BindRequired] int smallRooms,
-            [FromQuery] bool basedOnCity)
+            [FromQuery] string city)
         {
-            var request = new GetIntelligentBillboardRequest(timePeriod, bigRooms, smallRooms, basedOnCity);
+            var request = new GetIntelligentBillboardRequest(timePeriod, bigRooms, smallRooms, city);
 
             var response = await _mediator.Send(request);
 

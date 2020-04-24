@@ -25,7 +25,7 @@ namespace Beezy.BackendTest.Domain.Tests.Queries.IntelligentBoard
             _proxy = Substitute.For<ITheMovieDbProxy>();
             _repository = Substitute.For<IBeezyCinemaRepository>();
             _proxy.GetMovies().Returns(ProxyMoviesSeed().SomeNotNull());
-            _repository.GetMovies().Returns(ProxyMoviesSeed().SomeNotNull());
+            _repository.GetMovies(Arg.Any<string>()).Returns(ProxyMoviesSeed().SomeNotNull());
             _dateService = Substitute.For<IDateService>();
             _dateService.Now().Returns(new DateTime(2020, 04, 22));
         }
@@ -37,7 +37,7 @@ namespace Beezy.BackendTest.Domain.Tests.Queries.IntelligentBoard
             var handler = new GetIntelligentBillboardHandler(_proxy, _repository, _dateService);
 
             //Act
-            var result = await handler.Handle(new GetIntelligentBillboardRequest(1, 2, 2, false), CancellationToken.None);
+            var result = await handler.Handle(new GetIntelligentBillboardRequest(1, 2, 2, null), CancellationToken.None);
 
             var firstSmallScreen = result.Billboards.ValueOr(() => null).First().SmallScreenMovies.First();
             var secondSmallScreen = result.Billboards.ValueOr(() => null).First().SmallScreenMovies.Skip(1).First();
@@ -57,18 +57,23 @@ namespace Beezy.BackendTest.Domain.Tests.Queries.IntelligentBoard
         }
 
         [Theory]
-        [InlineData(1, 2)]
-        [InlineData(2, 4)]
-        [InlineData(4, 8)]
-        [InlineData(8, 8)]
-        [InlineData(16, 8)]
-        public async Task BuildAsManyBillboardsAsManyWeeksAreRequested(int timePeriod, int moviesExpected)
+        [InlineData(1, 2, null)]
+        [InlineData(2, 4, null)]
+        [InlineData(4, 8, null)]
+        [InlineData(8, 8, null)]
+        [InlineData(16, 8, null)]
+        [InlineData(1, 2, "barcelona")]
+        [InlineData(2, 4, "barcelona")]
+        [InlineData(4, 8, "barcelona")]
+        [InlineData(8, 8, "barcelona")]
+        [InlineData(16, 8, "barcelona")]
+        public async Task BuildAsManyBillboardsAsManyWeeksAreRequested(int timePeriod, int moviesExpected, string city)
         {
             //Arrange
             var handler = new GetIntelligentBillboardHandler(_proxy, _repository, _dateService);
 
             //Act
-            var result = await handler.Handle(new GetIntelligentBillboardRequest(timePeriod, 1, 1, false), CancellationToken.None);
+            var result = await handler.Handle(new GetIntelligentBillboardRequest(timePeriod, 1, 1, city), CancellationToken.None);
 
             //Assert
             result.Billboards.ValueOr(() => null).Should().HaveCount(timePeriod);

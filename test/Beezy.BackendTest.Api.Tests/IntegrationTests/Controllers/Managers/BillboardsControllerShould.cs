@@ -39,22 +39,25 @@ namespace Beezy.BackendTest.Api.Tests.IntegrationTests.Controllers.Managers
         [Fact]
         public async Task ReturnMoviesFromDatabase()
         {
-            var billboardRequest = BogusIntelligentBillboardData.GetIntelligentBillboardRequestsList(5);
+            var billboardRequest = BogusIntelligentBillboardData.GetIntelligentBillboardRequestsList(10);
+
+
+            var firstRequestExpected = billboardRequest.First();
+            var city = BogusCityData.GetCity(firstRequestExpected.City);
+            var cinemas = BogusCinemaData.GetCinemaList(100);
             var movies = BogusMovieData.GetMovieList(100);
             var sessions = BogusSessionData.GetSessionList(100, _dateService.Now());
             var rooms = BogusRoomData.GetRoomList(100);
             var genres = BogusGenreData.GetGenreList(100);
             var movieGenres = BogusMovieGenreData.GetMovieGenreList(100);
 
-            var firstRequestExpected = billboardRequest.First();
-
-            await SeedData(movies, sessions, rooms, genres, movieGenres);
+            await SeedData(city, cinemas, movies, sessions, rooms, genres, movieGenres);
 
             var request = new GetIntelligentBillboardRequest(
                 firstRequestExpected.TimePeriod,
                 firstRequestExpected.BigRooms,
                 firstRequestExpected.SmallRooms,
-                true);
+                firstRequestExpected.City);
 
             var result = await CallApi(request);
 
@@ -75,7 +78,7 @@ namespace Beezy.BackendTest.Api.Tests.IntegrationTests.Controllers.Managers
                 firstRequestExpected.TimePeriod, 
                 firstRequestExpected.BigRooms, 
                 firstRequestExpected.SmallRooms, 
-                false);
+                null);
 
             var result = await CallApi(request);
 
@@ -97,8 +100,11 @@ namespace Beezy.BackendTest.Api.Tests.IntegrationTests.Controllers.Managers
             return result;
         }
 
-        private async Task SeedData(IList<Movie> movies, IList<Session> sessions, IList<Room> rooms, IList<Genre> genres, IList<MovieGenre> movieGenres)
+        private async Task SeedData(City city, IList<Cinema> cinemas, IList<Movie> movies,
+            IList<Session> sessions, IList<Room> rooms, IList<Genre> genres, IList<MovieGenre> movieGenres)
         {
+            PickCityIdForCinemas(cinemas, city.Id);
+            PickRandomCinemaIdForRooms(rooms, cinemas.Min(c => c.Id), cinemas.Max(c => c.Id));
             PickRandomMovieIdForSessions(sessions, movies.Min(m => m.Id), movies.Max(m => m.Id));
             PickRandomRoomIdForSessions(sessions, rooms.Min(r => r.Id), rooms.Max(r => r.Id));
             PickRandomMovieAndGenreIdForMovieGenres(movieGenres, movies.Min(m => m.Id), movies.Max(m => m.Id),
@@ -111,6 +117,8 @@ namespace Beezy.BackendTest.Api.Tests.IntegrationTests.Controllers.Managers
                 await context.Movie.AddRangeAsync(movies);
                 await context.Room.AddRangeAsync(rooms);
                 await context.Session.AddRangeAsync(sessions);
+                await context.City.AddAsync(city);
+                await context.Cinema.AddRangeAsync(cinemas);
                 await context.SaveChangesAsync();
             });
         }
@@ -148,13 +156,29 @@ namespace Beezy.BackendTest.Api.Tests.IntegrationTests.Controllers.Managers
             } while (movieGenreIndex < movieGenres.Count);
         }
 
+        private void PickCityIdForCinemas(IList<Cinema> cinemas, int cityId)
+        {
+            foreach (var cinema in cinemas)
+            {
+                cinema.CityId = cityId;
+            }
+        }
+
+        private void PickRandomCinemaIdForRooms(IList<Room> rooms, int minCinemaIndex, int maxCinemaIndex)
+        {
+            foreach (var room in rooms)
+            {
+                room.CinemaId = new Faker().Random.Int(minCinemaIndex, maxCinemaIndex);
+            }
+        }
+
         private string BuildQueryParams(GetIntelligentBillboardRequest request)
         {
             return string.Empty
                 .AddQueryParam("timePeriod", request.TimePeriod)
                 .AddQueryParam("bigRooms", request.BigRooms)
                 .AddQueryParam("smallRooms", request.SmallRooms)
-                .AddQueryParam("basedOnCity", request.BasedOnCity)
+                .AddQueryParam("city", request.City)
                 .AddQueryParam("api-version", "1.0")
                 ;
         }

@@ -28,7 +28,7 @@ namespace Beezy.BackendTest.Domain.Queries.IntelligentBillboard
         public async Task<GetIntelligentBillboardResponse> Handle(GetIntelligentBillboardRequest request,
             CancellationToken cancellationToken)
         {
-            var movies = await GetMovies(request.BasedOnCity);
+            var movies = await GetMovies(request.City);
 
             return movies.Match(
                 response => new GetIntelligentBillboardResponse(billboards: BuildBillboards(request, response).ToList()
@@ -36,10 +36,11 @@ namespace Beezy.BackendTest.Domain.Queries.IntelligentBillboard
                 () => new GetIntelligentBillboardResponse(billboards: new Option<List<Billboard>>()));
         }
 
-        private async Task<Option<List<MovieInfo>>> GetMovies(bool requestBasedOnCity)
+        private async Task<Option<List<MovieInfo>>> GetMovies(string city)
         {
-            if(requestBasedOnCity) return await _repository.GetMovies();
-            return await _proxy.GetMovies();
+            if(string.IsNullOrWhiteSpace(city)) return await _proxy.GetMovies(); 
+            return await _repository.GetMovies(city);
+            
         }
 
 
