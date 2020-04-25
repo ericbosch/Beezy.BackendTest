@@ -1,6 +1,6 @@
-﻿using Beezy.BackendTest.Api.Models.Recommendations.Base;
+﻿using Beezy.BackendTest.Api.V1.Models.Recommendations.Base;
 
-namespace Beezy.BackendTest.Api.Models.Recommendations
+namespace Beezy.BackendTest.Api.V1.Models.Recommendations
 {
     /// <inheritdoc />
     public class TvShowRecommendationResponse : BaseRecommendationResponse

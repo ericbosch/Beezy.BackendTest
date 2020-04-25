@@ -1,5 +1,5 @@
 ﻿#pragma warning disable 1591
-namespace Beezy.BackendTest.Api.Models.Recommendations
+namespace Beezy.BackendTest.Api.V1.Models.Recommendations
 {
     /// <summary>
     /// Container model for suggested movies for each theater

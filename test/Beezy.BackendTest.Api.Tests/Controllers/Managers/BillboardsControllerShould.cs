@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Beezy.BackendTest.Api.Controllers.Managers;
-using Beezy.BackendTest.Api.Models.Billboards;
+using Beezy.BackendTest.Api.V1.Controllers.Managers;
+using Beezy.BackendTest.Api.V1.Models.Billboards;
 using Beezy.BackendTest.Domain.Queries.IntelligentBillboard;
 using Beezy.BackendTest.Domain.Queries.IntelligentBillboard.Models;
 using Bogus;

@@ -1,9 +1,10 @@
 ﻿using System.Linq;
-using Beezy.BackendTest.Api.Models.Billboards;
+using Beezy.BackendTest.Api.V1.Models.Billboards;
 using Beezy.BackendTest.Domain.Queries.IntelligentBillboard.Models;
+
 #pragma warning disable 1591
 
-namespace Beezy.BackendTest.Api.Extensions
+namespace Beezy.BackendTest.Api.V1.Extensions
 {
     public static class BillboardExtensions
     {

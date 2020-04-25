@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net.Http;
 using System.Reflection;
-using Beezy.BackendTest.Api.Behaviours;
 using Beezy.BackendTest.Api.Services;
+using Beezy.BackendTest.Api.V1.Behaviours;
 using Beezy.BackendTest.Domain;
 using Beezy.BackendTest.Domain.Proxies;
 using Beezy.BackendTest.Domain.Queries.IntelligentBillboard;

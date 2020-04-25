@@ -2,11 +2,12 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
 using FluentValidation;
+using MediatR;
+
 #pragma warning disable 1591
 
-namespace Beezy.BackendTest.Api.Behaviours
+namespace Beezy.BackendTest.Api.V1.Behaviours
 {
     public class ValidatorPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>

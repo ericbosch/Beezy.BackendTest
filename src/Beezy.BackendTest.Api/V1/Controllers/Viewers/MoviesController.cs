@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Beezy.BackendTest.Api.Models.Recommendations;
+using Beezy.BackendTest.Api.V1.Models.Recommendations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
 
-namespace Beezy.BackendTest.Api.Controllers.Viewers
+namespace Beezy.BackendTest.Api.V1.Controllers.Viewers
 {
     /// <inheritdoc />
     [Route("api/viewers/recommendations/movies")]
     [ApiController]
+    [ApiVersion("1.0")]
     public class MoviesController : ControllerBase
     {
         /// <summary>

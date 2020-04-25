@@ -3,9 +3,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.Logging;
+
 #pragma warning disable 1591
 
-namespace Beezy.BackendTest.Api.Behaviours
+namespace Beezy.BackendTest.Api.V1.Behaviours
 {
     public class LoggingPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {

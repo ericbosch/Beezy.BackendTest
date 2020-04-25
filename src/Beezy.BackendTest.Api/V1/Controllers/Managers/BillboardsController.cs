@@ -1,20 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Beezy.BackendTest.Api.Extensions;
-using Beezy.BackendTest.Api.Models.Billboards;
+using Beezy.BackendTest.Api.V1.Extensions;
+using Beezy.BackendTest.Api.V1.Models.Billboards;
 using Beezy.BackendTest.Domain.Queries.IntelligentBillboard;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
 
-namespace Beezy.BackendTest.Api.Controllers.Managers
+namespace Beezy.BackendTest.Api.V1.Controllers.Managers
 {
     /// <inheritdoc />
     [Route("api/managers/billboards")]
     [ApiController]
+    [ApiVersion("1.0")]
     public class BillboardsController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -33,11 +35,10 @@ namespace Beezy.BackendTest.Api.Controllers.Managers
         /// </remarks>
         /// <param name="timePeriod">Period of time (in weeks) from now</param>
         /// <param name="screenNumber">Number of screens for the theater</param>
-        /// <param name="basedOnCity">Include movies that have been successful in the city</param>
         [HttpGet("suggested")]
         [ProducesResponseType(typeof(List<SuggestedBillboardResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetSuggestedBillboard([FromQuery, BindRequired] int timePeriod, [FromQuery, BindRequired] int screenNumber, [FromQuery] bool basedOnCity)
+        public async Task<IActionResult> GetSuggestedBillboard([FromQuery, BindRequired] int timePeriod, [FromQuery, BindRequired] int screenNumber)
         {
             return NotFound("Under construction, come back soon!");
         }
