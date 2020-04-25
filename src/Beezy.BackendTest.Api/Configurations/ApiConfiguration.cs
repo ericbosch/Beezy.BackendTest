@@ -127,8 +127,7 @@ namespace Beezy.BackendTest.Api.Configurations
                     options.OperationFilter<SwaggerDefaultValues>();
 
                     //integrate xml comments
-                    options.IncludeXmlComments(
-                        $@"{AppDomain.CurrentDomain.BaseDirectory}\Beezy.BackendTest.Api.xml");
+                    options.IncludeXmlComments("Beezy.BackendTest.Api.xml");
                 });
         }
 

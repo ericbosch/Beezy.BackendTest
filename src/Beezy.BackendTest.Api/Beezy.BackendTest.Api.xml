@@ -10,7 +10,7 @@
         <member name="M:Beezy.BackendTest.Api.V1.Controllers.Managers.BillboardsController.#ctor(MediatR.IMediator)">
             <inheritdoc />
         </member>
-        <member name="M:Beezy.BackendTest.Api.V1.Controllers.Managers.BillboardsController.GetSuggestedBillboard(System.Int32,System.Int32)">
+        <member name="M:Beezy.BackendTest.Api.V1.Controllers.Managers.BillboardsController.GetSuggestedBillboard(System.Int32,System.Int32,System.String)">
             <summary>
             Build a suggested billboard for theaters for a specific period of one or more weeks.
             </summary>
@@ -19,6 +19,7 @@
             </remarks>
             <param name="timePeriod">Period of time (in weeks) from now</param>
             <param name="screenNumber">Number of screens for the theater</param>
+            <param name="city">City to include movies that have been successful in the specified city</param>
         </member>
         <member name="M:Beezy.BackendTest.Api.V1.Controllers.Managers.BillboardsController.GetIntelligentBillboard(System.Int32,System.Int32,System.Int32,System.String)">
             <summary>

@@ -49,4 +49,10 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Beezy.BackendTest.Api.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
