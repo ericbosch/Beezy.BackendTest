@@ -3,6 +3,8 @@
 ![.NET Core Build](https://github.com/ericbosch/Beezy.BackendTest/workflows/.NET%20Core%20Build/badge.svg) 
 _[__Api call samples__](https://github.com/ericbosch/Beezy.BackendTest/wiki/Test-samples)_
 
+*Read this in [Spanish](README_es.md).*
+
 ### Online api location
 
 
