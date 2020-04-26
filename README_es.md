@@ -2,6 +2,8 @@
 ## _Eric Bosch Mompió - Abril 2020_
 ![.NET Core Build](https://github.com/ericbosch/Beezy.BackendTest/workflows/.NET%20Core%20Build/badge.svg) _[__Ejemplos de llamadas__](https://github.com/ericbosch/Beezy.BackendTest/wiki/Test-samples)_
 
+*Vesión en [Inglés](README.md).*
+
 ### Ubicación de la api online
 
 Podéis encontrar la api en la dirección siguiente: https://bit.ly/beezybackendapi
